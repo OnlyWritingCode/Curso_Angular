@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PeliculasAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a6dd8ec2ae47dcde6cb7ad29f660bc7a4117d130")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eaefdb41918dddddb8cce89a108dfb6fef2c71df")]
 [assembly: System.Reflection.AssemblyProductAttribute("PeliculasAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PeliculasAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

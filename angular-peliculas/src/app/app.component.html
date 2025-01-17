@@ -4,6 +4,8 @@
 
 <app-menu></app-menu>
 
+<div class="contenedor">
+
 <app-rating [maximoRating]="9" (votado)="procesarVoto($event)"></app-rating>
 
 <h2>En Cine</h2>
@@ -15,3 +17,5 @@
 <app-listado-peliculas
   [peliculas]="peliculasProximosEstrenos"
 ></app-listado-peliculas>
+
+</div>
