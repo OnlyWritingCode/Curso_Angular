@@ -1,17 +1,26 @@
-.contenedor-pelicula{
-    border: 1px solid black;
-    margin-bottom: 1rem;
-    padding: 1rem;
-}
-
-.loading{
+.peliculas-contenedor{
     display: flex;
-    
-    width: 100px;
-    height: 100px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
 }
 
+.pelicula-contenedor{
+    margin-right: 2%;
+    margin-bottom: 10px;
+    text-align: center;
+}
 
-h2{
-    color: blue;
-  }
+div button{
+    background-color: aqua;
+}
+
+button{
+    margin-left: 1rem;
+}
+
+p{
+    max-width: 225px;
+    font-size: 15px;
+    font-weight: bold;
+}

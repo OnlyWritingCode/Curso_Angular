@@ -1,21 +1,7 @@
-<!-- <input type="file" style="display: none" #cargadorArchivos />
-
-<button (click)="cargadorArchivos.click()">Cargar Archivo</button> -->
-
 <app-menu></app-menu>
 
+<h1>Este es un mensaje que estará en cada pagina</h1>
+
 <div class="contenedor">
-
-<app-rating [maximoRating]="9" (votado)="procesarVoto($event)"></app-rating>
-
-<h2>En Cine</h2>
-
-<app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
-
-<h2>Proximos Estrenos</h2>
-
-<app-listado-peliculas
-  [peliculas]="peliculasProximosEstrenos"
-></app-listado-peliculas>
-
+  <router-outlet></router-outlet>
 </div>

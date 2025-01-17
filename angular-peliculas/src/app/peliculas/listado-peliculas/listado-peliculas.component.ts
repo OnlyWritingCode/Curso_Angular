@@ -20,19 +20,4 @@ import { MatIconModule } from '@angular/material/icon';
 export class ListadoPeliculasComponent {
   @Input({ required: true })
   peliculas!: any[];
-
-  agregarPelicula() {
-    this.peliculas.push({
-      titulo: 'Inception',
-      fechaLanzamiento: new Date('2012-08-14'),
-      precio: 500,
-    });
-  }
-
-  remover(pelicula: any) {
-    const indice = this.peliculas.findIndex(
-      (peliculaActual: any) => peliculaActual.titulo === pelicula.titulo
-    );
-    this.peliculas.splice(indice, 1);
-  }
 }
