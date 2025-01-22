@@ -3,12 +3,12 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
 import { MatSelectModule } from '@angular/material/select';
-
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ListadoPeliculasComponent } from '../listado-peliculas/listado-peliculas.component';
 import { FiltroPeliculas } from './filtroPelicula';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-filtro-peliculas',
@@ -26,9 +26,12 @@ import { FiltroPeliculas } from './filtroPelicula';
 })
 export class FiltroPeliculasComponent implements OnInit {
   ngOnInit(): void {
+    this.leerValoresURL();
+    this.buscarPeliculas(this.form.value as FiltroPeliculas )
     this.form.valueChanges.subscribe((valores) => {
       this.peliculas = this.peliculasOriginal;
       this.buscarPeliculas(valores as FiltroPeliculas);
+      this.escribirParametrosBusquedaEnURL(valores as FiltroPeliculas);
     });
   }
 
@@ -56,6 +59,53 @@ export class FiltroPeliculasComponent implements OnInit {
     }
   }
 
+  escribirParametrosBusquedaEnURL(valores: FiltroPeliculas){
+    let queryStrings = [];
+    if(valores.titulo){
+      queryStrings.push(`titulo=${encodeURIComponent(valores.titulo)}`);
+    }
+
+    if(valores.generoId !== 0){
+      queryStrings.push(`generoId=${valores.generoId}`);
+    }
+
+    if(valores.proximosEstrenos){
+      queryStrings.push(`proximosEstrenos=${valores.proximosEstrenos}`);
+    }
+
+    if(valores.enCines){
+      queryStrings.push(`enCines=${valores.enCines}`);
+    }
+
+    this.location.replaceState('peliculas/filtrar', queryStrings.join('&'));
+  }
+
+  leerValoresURL(){
+    this.activateRoute.queryParams.subscribe((params: any) =>{
+      var objeto: any = {};
+
+      if (params.titulo){
+        objeto.titulo = params.titulo;
+      }
+
+      if(params.generoId){
+        objeto.generoId = Number(params.generoId)
+      }
+
+      if(params.proximosEstrenos){
+        objeto.proximosEstrenos = params.proximosEstrenos;
+      }
+
+      if(params.enCines){
+        objeto.enCines = params.enCines;
+      }
+
+      this.form.patchValue(objeto);
+
+
+    })
+  }
+
   limpiar() {
     this.form.patchValue({
       titulo: '',
@@ -66,6 +116,8 @@ export class FiltroPeliculasComponent implements OnInit {
   }
 
   private formBuilder = inject(FormBuilder);
+  private location = inject(Location);
+  private activateRoute = inject(ActivatedRoute);
 
   form = this.formBuilder.group({
     titulo: '',

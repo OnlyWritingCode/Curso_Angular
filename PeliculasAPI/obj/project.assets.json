@@ -470,19 +470,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bayro\\.nuget\\packages\\": {}
+    "C:\\Users\\ecmpc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bayro\\OneDrive\\Escritorio\\Curso_Angular\\PeliculasAPI\\PeliculasAPI.csproj",
+      "projectUniqueName": "C:\\Users\\ecmpc\\OneDrive\\Escritorio\\Curso_Angular\\PeliculasAPI\\PeliculasAPI.csproj",
       "projectName": "PeliculasAPI",
-      "projectPath": "C:\\Users\\bayro\\OneDrive\\Escritorio\\Curso_Angular\\PeliculasAPI\\PeliculasAPI.csproj",
-      "packagesPath": "C:\\Users\\bayro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bayro\\OneDrive\\Escritorio\\Curso_Angular\\PeliculasAPI\\obj\\",
+      "projectPath": "C:\\Users\\ecmpc\\OneDrive\\Escritorio\\Curso_Angular\\PeliculasAPI\\PeliculasAPI.csproj",
+      "packagesPath": "C:\\Users\\ecmpc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ecmpc\\OneDrive\\Escritorio\\Curso_Angular\\PeliculasAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\bayro\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ecmpc\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
