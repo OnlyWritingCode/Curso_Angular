@@ -16,6 +16,7 @@ export class EditarActorComponent {
     id: 1,
     nombre: 'Tom Holland',
     fechaNacimiento: new Date('1999-01-25'),
+    foto: 'https://uvn-brightspot.s3.amazonaws.com/assets/vixes/imj/f/fotos-de-famosos-guapos-lautner1.jpg',
   };
 
   guardarCambios(actor: ActorCreacionDTO) {
