@@ -1,5 +1,17 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,32 +21,46 @@ import { InputImgComponent } from '../../compartidos/componentes/input-img/input
 import { PeliculaCreacionDTO, PeliculaDTO } from '../peliculas';
 import moment from 'moment';
 import { SelectorMultipleDTO } from '../../compartidos/componentes/selector-multiple/SelectorMultipleModelo';
-import { SelectorMultipleComponent } from "../../compartidos/componentes/selector-multiple/selector-multiple.component";
-import { AutocompleteActoresComponent } from "../../actores/autocomplete-actores/autocomplete-actores.component";
+import { SelectorMultipleComponent } from '../../compartidos/componentes/selector-multiple/selector-multiple.component';
+import { AutocompleteActoresComponent } from '../../actores/autocomplete-actores/autocomplete-actores.component';
+import { actorAutoCompleteDTO } from '../../actores/actores';
 
 @Component({
   selector: 'app-formulario-peliculas',
-  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule, RouterLink, MatDatepickerModule, InputImgComponent, SelectorMultipleComponent, AutocompleteActoresComponent],
+  imports: [
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    RouterLink,
+    MatDatepickerModule,
+    InputImgComponent,
+    SelectorMultipleComponent,
+    AutocompleteActoresComponent,
+  ],
   templateUrl: './formulario-peliculas.component.html',
-  styleUrl: './formulario-peliculas.component.css'
+  styleUrl: './formulario-peliculas.component.css',
 })
 export class FormularioPeliculasComponent implements OnInit {
   ngOnInit(): void {
-    if (this.modelo !== undefined){
+    if (this.modelo !== undefined) {
       this.form.patchValue(this.modelo);
     }
   }
-  @Input({required: true})
+  @Input({ required: true })
   generosNoSeleccionados!: SelectorMultipleDTO[];
 
-  @Input({required: true})
+  @Input({ required: true })
   generosSeleccionados!: SelectorMultipleDTO[];
 
-  @Input({required: true})
+  @Input({ required: true })
   CinesNoSeleccionados!: SelectorMultipleDTO[];
 
-  @Input({required: true})
+  @Input({ required: true })
   CinesSeleccionados!: SelectorMultipleDTO[];
+
+  @Input({ required: true })
+  actoresSeleccionados!: actorAutoCompleteDTO[];
 
   @Input()
   modelo?: PeliculaDTO;
@@ -44,18 +70,20 @@ export class FormularioPeliculasComponent implements OnInit {
 
   private formBuilder = inject(FormBuilder);
   form = this.formBuilder.group({
-    titulo: ['', {validators: [Validators.required]}],
-    fechaLanzamiento: new FormControl<Date | null>(null, {validators: [Validators.required]}),
+    titulo: ['', { validators: [Validators.required] }],
+    fechaLanzamiento: new FormControl<Date | null>(null, {
+      validators: [Validators.required],
+    }),
     trailer: '',
-    poster: new FormControl<File | string | null>(null)
-  })
+    poster: new FormControl<File | string | null>(null),
+  });
 
-  archivoSeleccionado(file: File){
+  archivoSeleccionado(file: File) {
     this.form.controls.poster.setValue(file);
   }
 
-  guardarCambios(){
-    if(!this.form.valid){
+  guardarCambios() {
+    if (!this.form.valid) {
       return;
     }
 
@@ -63,11 +91,13 @@ export class FormularioPeliculasComponent implements OnInit {
 
     pelicula.fechaLanzamiento = moment(pelicula.fechaLanzamiento).toDate();
 
-    const generosIds = this.generosSeleccionados.map(val => val.llave);
+    const generosIds = this.generosSeleccionados.map((val) => val.llave);
     pelicula.generosIds = generosIds;
 
-    const cinesIds = this.CinesSeleccionados.map(val => val.llave);
+    const cinesIds = this.CinesSeleccionados.map((val) => val.llave);
     pelicula.cinesIds = cinesIds;
+
+    pelicula.actores = this.actoresSeleccionados;
 
     this.posteoFormulario.emit(pelicula);
   }
@@ -75,7 +105,7 @@ export class FormularioPeliculasComponent implements OnInit {
   obtenerErrorCampoTitulo(): string {
     let campo = this.form.controls.titulo;
 
-    if(campo.hasError('required')){
+    if (campo.hasError('required')) {
       return 'El campo nombre es requerido';
     }
 
@@ -85,7 +115,7 @@ export class FormularioPeliculasComponent implements OnInit {
   obtenerErrorCampoFechaLanzamiento(): string {
     let campo = this.form.controls.fechaLanzamiento;
 
-    if(campo.hasError('required')){
+    if (campo.hasError('required')) {
       return 'El campo fecha lanzamiento es requerida';
     }
 

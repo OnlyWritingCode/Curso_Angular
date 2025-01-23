@@ -3089,6 +3089,20 @@ function timer(dueTime, intervalOrScheduler, scheduler) {
   });
 }
 
+// node_modules/rxjs/dist/esm5/internal/observable/interval.js
+function interval(period, scheduler) {
+  if (period === void 0) {
+    period = 0;
+  }
+  if (scheduler === void 0) {
+    scheduler = asyncScheduler;
+  }
+  if (period < 0) {
+    period = 0;
+  }
+  return timer(period, period, scheduler);
+}
+
 // node_modules/rxjs/dist/esm5/internal/observable/merge.js
 function merge() {
   var args = [];
@@ -29786,6 +29800,7 @@ export {
   concat,
   defer,
   forkJoin,
+  interval,
   merge,
   filter,
   auditTime,
@@ -30373,4 +30388,4 @@ export {
    * found in the LICENSE file at https://angular.dev/license
    *)
 */
-//# sourceMappingURL=chunk-EVYSOTDO.js.map
+//# sourceMappingURL=chunk-AODTN5PT.js.map

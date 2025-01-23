@@ -1,3 +1,11 @@
 <h2>Editar Película</h2>
 
-<app-formulario-peliculas [modelo]="pelicula" (posteoFormulario)="guardarCambios($event)" [generosNoSeleccionados]="generosNoSeleccionados" [generosSeleccionados]="generosSeleccionados" [CinesNoSeleccionados]="cinesNoSeleccionados" [CinesSeleccionados]="cinesSeleccionados"></app-formulario-peliculas>
+<app-formulario-peliculas
+  [modelo]="pelicula"
+  (posteoFormulario)="guardarCambios($event)"
+  [generosNoSeleccionados]="generosNoSeleccionados"
+  [generosSeleccionados]="generosSeleccionados"
+  [CinesNoSeleccionados]="cinesNoSeleccionados"
+  [CinesSeleccionados]="cinesSeleccionados"
+  [actoresSeleccionados]="actoresSeleccionados"
+></app-formulario-peliculas>

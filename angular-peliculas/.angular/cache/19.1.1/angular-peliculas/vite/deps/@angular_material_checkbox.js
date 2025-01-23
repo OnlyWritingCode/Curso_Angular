@@ -2,16 +2,18 @@ import {
   CheckboxRequiredValidator,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR
-} from "./chunk-KOMUMUEH.js";
+} from "./chunk-FUSDUPEL.js";
 import {
   MatCommonModule,
   MatRipple,
-  _CdkPrivateStyleLoader,
-  _IdGenerator,
   _MatInternalFormField,
   _StructuralStylesLoader
-} from "./chunk-JRNWBS4K.js";
-import "./chunk-FH3T3DOK.js";
+} from "./chunk-ICQ6RI3S.js";
+import {
+  _CdkPrivateStyleLoader,
+  _IdGenerator
+} from "./chunk-OXGUII25.js";
+import "./chunk-FMCSEFRG.js";
 import {
   ANIMATION_MODULE_TYPE,
   ChangeDetectionStrategy,
@@ -63,7 +65,7 @@ import {
   ɵɵresetView,
   ɵɵrestoreView,
   ɵɵviewQuery
-} from "./chunk-EVYSOTDO.js";
+} from "./chunk-AODTN5PT.js";
 import "./chunk-KBUIKKCC.js";
 
 // node_modules/@angular/material/fesm2022/checkbox.mjs
