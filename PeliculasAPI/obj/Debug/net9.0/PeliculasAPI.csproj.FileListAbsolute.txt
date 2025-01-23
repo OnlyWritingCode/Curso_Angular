@@ -34,3 +34,4 @@ C:\Users\ecmpc\OneDrive\Escritorio\Curso_Angular\PeliculasAPI\obj\Debug\net9.0\r
 C:\Users\ecmpc\OneDrive\Escritorio\Curso_Angular\PeliculasAPI\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\ecmpc\OneDrive\Escritorio\Curso_Angular\PeliculasAPI\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\ecmpc\OneDrive\Escritorio\Curso_Angular\PeliculasAPI\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\ecmpc\OneDrive\Escritorio\Curso_Angular\PeliculasAPI\obj\Debug\net9.0\PeliculasAPI.sourcelink.json
