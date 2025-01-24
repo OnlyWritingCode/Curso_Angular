@@ -1,17 +1,17 @@
-﻿using PeliculasAPI.Entidades;
+using PeliculasAPI.Entidades;
 
 namespace PeliculasAPI
 {
-    public class RepositorioEnMemoria: IRepositorio
+    public class RepositorioSQLServer : IRepositorio
     {
         private List<Genero> _generos;
 
-        public RepositorioEnMemoria()
+        public RepositorioSQLServer()
         {
             _generos = new List<Genero>
             {
-                new Genero{Id = 1, Nombre = "Comedia"},
-                new Genero{Id = 2, Nombre = "Acción"}
+                new Genero{Id = 1, Nombre = "Comedia SQL"},
+                new Genero{Id = 2, Nombre = "Acción SQL"}
             };
         }
 
