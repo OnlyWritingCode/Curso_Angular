@@ -13,11 +13,7 @@ builder.Services.AddOutputCache(opciones => {
     opciones.DefaultExpirationTimeSpan = TimeSpan.FromSeconds(10);
 });
 
-builder.Services.AddTransient<IRepositorio, RepositorioSQLServer>();
 
-builder.Services.AddTransient<ServicioTransient>();
-builder.Services.AddScoped<ServicioScoped>();
-builder.Services.AddSingleton<ServicioSingleton>();
 
 var app = builder.Build();
 

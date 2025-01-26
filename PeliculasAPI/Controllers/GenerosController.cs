@@ -7,81 +7,45 @@ namespace PeliculasAPI.Controllers{
     [ApiController]
     public class GenerosController: ControllerBase{
 
-        private readonly IRepositorio repositorio;
-        private readonly ServicioTransient transient1;
-        private readonly ServicioTransient transient2;
-        private readonly ServicioScoped scoped1;
-        private readonly ServicioScoped scoped2;
-        private readonly ServicioSingleton singleton;
 
-        public GenerosController(IRepositorio repositorio,
-        ServicioTransient transient1,
-        ServicioTransient transient2,
-        ServicioScoped scoped1,
-        ServicioScoped scoped2,
-        ServicioSingleton singleton
+        private readonly IOutputCacheStore outputCacheStore;
+        private const string cacheTag = "generos";
+
+        public GenerosController(IOutputCacheStore outputCacheStore
         )
         {
-            this.repositorio = repositorio;
-            this.transient1 = transient1;
-            this.transient2 = transient2;
-            this.scoped1 = scoped1;
-            this.scoped2 = scoped2;
-            this.singleton = singleton;
-        }
-
-        [HttpGet("servicios-tiempos-de-vida")]
-        public IActionResult GetServicioTiemposDeVida()
-        {
-            return Ok(new {
-                Transients = new {transient1 = transient1.ObtenerId, transient2 = transient2.ObtenerId},
-                Scopeds = new {scoped1 = scoped1.ObtenerId, scoped2 = scoped2.ObtenerId},
-                Singleton = singleton.ObtenerId
-            });
+            this.outputCacheStore = outputCacheStore;
         }
 
         [HttpGet]
+        [OutputCache (Tags =[cacheTag])]
         public List<Genero> Get()
         {
-            var generos = repositorio.ObtenerTodosLosGeneros();
-            return generos;
+            return new List<Genero>(){new Genero {Id = 1, Nombre = "Comedia"},new Genero {Id = 2, Nombre = "Acción"}};
         }
 
         [HttpGet ("{id:int}")]
-        [OutputCache]
+        [OutputCache (Tags =["generos"])]
         public async Task<ActionResult<Genero>> Get(int id)
         {
-            var genero = await repositorio.ObtenerPorId(id);
-
-            if(genero is null){
-                return NotFound();
-            }
-
-            return genero;
+            throw new NotImplementedException();
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Genero genero)
+        public async Task<IActionResult> Post([FromBody] Genero genero)
         {
-           var yaExisteUnGeneroConDichoNombre = repositorio.Existe(genero.Nombre);
-
-           if(yaExisteUnGeneroConDichoNombre)
-           {
-            return BadRequest($"Ya existe un género con el nombre {genero.Nombre}");
-           }
-
-           return Ok();
+           throw new NotImplementedException();
         }
 
         [HttpPut]
         public void Put()
         {
-
+            throw new NotImplementedException();
         }
         [HttpDelete]
         public void Delete()
         {
-
+            throw new NotImplementedException();
         }
     }
 }
