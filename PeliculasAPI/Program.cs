@@ -13,6 +13,16 @@ builder.Services.AddOutputCache(opciones => {
     opciones.DefaultExpirationTimeSpan = TimeSpan.FromSeconds(10);
 });
 
+var origenesPermitidos = builder.Configuration.GetValue<string>("origenesPermitidos")!.Split(",");
+
+builder.Services.AddCors(opciones =>
+{
+    opciones.AddDefaultPolicy (opcionesCORS =>
+    {
+        opcionesCORS.WithOrigins(origenesPermitidos).AllowAnyMethod().AllowAnyHeader();
+    });
+});
+
 
 
 var app = builder.Build();
@@ -25,6 +35,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseOutputCache();
 
