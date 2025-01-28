@@ -2,7 +2,7 @@ import {
   CdkScrollableModule,
   ScrollDispatcher,
   ViewportRuler
-} from "./chunk-S6L54NKI.js";
+} from "./chunk-2UW53HEB.js";
 import {
   Directionality,
   _CdkPrivateStyleLoader,
@@ -15,10 +15,10 @@ import {
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader,
   normalizePassiveListenerOptions
-} from "./chunk-OXGUII25.js";
+} from "./chunk-5LH2IMPR.js";
 import {
   DOCUMENT
-} from "./chunk-FMCSEFRG.js";
+} from "./chunk-IPFKHZ4T.js";
 import {
   BehaviorSubject,
   ChangeDetectionStrategy,
@@ -66,7 +66,7 @@ import {
   ɵɵdefineInjectable,
   ɵɵdefineInjector,
   ɵɵdefineNgModule
-} from "./chunk-AODTN5PT.js";
+} from "./chunk-UQN4DNCL.js";
 import "./chunk-KBUIKKCC.js";
 
 // node_modules/@angular/cdk/fesm2022/drag-drop.mjs

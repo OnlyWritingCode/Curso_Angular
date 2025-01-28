@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IRfjBsGbSSo=",
+  "dgSpecHash": "P+lo7rMvFhM=",
   "success": true,
   "projectFilePath": "C:\\Users\\ecmpc\\OneDrive\\Escritorio\\Curso_Angular\\PeliculasAPI\\PeliculasAPI\\PeliculasAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ecmpc\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\ecmpc\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\ecmpc\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\ecmpc\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

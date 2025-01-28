@@ -1,3 +1,34 @@
 <h2>Géneros</h2>
 
 <button mat-flat-button routerLink="/generos/crear">Crear Nuevo</button>
+
+<app-listado-generico [listado]="generos">
+    <ng-container contenido>
+        <table mat-table [dataSource]="generos" class="mat-elevation-z8 indice-elementos">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>Id</th>
+                <th mat-cell *matCellDef="let elemento">{{elemento.id}}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <th mat-cell *matCellDef="let elemento">{{elemento.nombre}}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="acciones">
+                <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                <th mat-cell *matCellDef="let elemento">
+                    <a routerLink="/generos/editar/{{elemento.id}}" mat-flat-button>Editar</a>
+                    <button mat-flat-button color="warn">Borrar</button>
+                </th>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnasAMostrar"></tr>
+
+        </table>
+
+        <mat-paginator showFirstLastButtons [length]="cantidadTotalRegistros" [pageSize]="paginacion.recordsPorPagina" [pageSizeOptions]="[3, 6, 9]" class="mat-elevation-z8" (page)="actualizarPaginacion($event)"></mat-paginator>
+    </ng-container>
+</app-listado-generico>

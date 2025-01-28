@@ -6,10 +6,21 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "Pagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "RecordsPorPagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[PeliculasAPI.Entidades.Genero, PeliculasAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[PeliculasAPI.DTOs.GeneroDTO, PeliculasAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -28,28 +39,12 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "genero",
-        "Type": "PeliculasAPI.Entidades.Genero",
+        "Name": "generoCreacionDTO",
+        "Type": "PeliculasAPI.DTOs.GeneroCreacionDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PeliculasAPI.Controllers.GenerosController",
-    "Method": "Put",
-    "RelativePath": "api/generos",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "PeliculasAPI.Controllers.GenerosController",
@@ -83,7 +78,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "PeliculasAPI.Entidades.Genero",
+        "Type": "PeliculasAPI.DTOs.GeneroDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -93,5 +88,26 @@
       }
     ],
     "EndpointName": "ObtenerGeneroPorId"
+  },
+  {
+    "ContainingType": "PeliculasAPI.Controllers.GenerosController",
+    "Method": "Put",
+    "RelativePath": "api/generos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "generoCreacionDTO",
+        "Type": "PeliculasAPI.DTOs.GeneroCreacionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
