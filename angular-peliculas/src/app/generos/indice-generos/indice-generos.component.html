@@ -20,7 +20,8 @@
                 <th mat-header-cell *matHeaderCellDef>Acciones</th>
                 <th mat-cell *matCellDef="let elemento">
                     <a routerLink="/generos/editar/{{elemento.id}}" mat-flat-button>Editar</a>
-                    <button mat-flat-button color="warn">Borrar</button>
+                    <button mat-flat-button color="warn" [swal]="{title: 'Confirmación' , text: '¿Deseas borrar este registro?', showCancelButton: true}"
+                    (confirm)="borrar(elemento.id)">Borrar</button>
                 </th>
             </ng-container>
 
@@ -29,6 +30,6 @@
 
         </table>
 
-        <mat-paginator showFirstLastButtons [length]="cantidadTotalRegistros" [pageSize]="paginacion.recordsPorPagina" [pageSizeOptions]="[3, 6, 9]" class="mat-elevation-z8" (page)="actualizarPaginacion($event)"></mat-paginator>
+        <mat-paginator showFirstLastButtons [length]="cantidadTotalRegistros" [pageIndex]="paginacion.pagina - 1" [pageSize]="paginacion.recordsPorPagina" [pageSizeOptions]="[3, 6, 9]" class="mat-elevation-z8" (page)="actualizarPaginacion($event)"></mat-paginator>
     </ng-container>
 </app-listado-generico>

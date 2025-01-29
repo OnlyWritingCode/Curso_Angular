@@ -27,7 +27,7 @@ namespace PeliculasAPI.Controllers
             this.mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet] //API GENEROS
         [OutputCache(Tags = [cacheTag])]
         public async Task<List<GeneroDTO>> Get([FromQuery] PaginacionDTO paginacion)
         {
@@ -40,7 +40,7 @@ namespace PeliculasAPI.Controllers
         }
 
         [HttpGet("{id:int}", Name = "ObtenerGeneroPorId")]
-        [OutputCache(Tags = ["generos"])]
+        [OutputCache(Tags = [cacheTag])]
         public async Task<ActionResult<GeneroDTO>> Get(int id)
         {
             var genero = await context.Generos
@@ -57,7 +57,7 @@ namespace PeliculasAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GeneroCreacionDTO generoCreacionDTO)
         {
-            var genero = mapper.Map<GeneroDTO>(generoCreacionDTO);
+            var genero = mapper.Map<Genero>(generoCreacionDTO);
             context.Add(genero);
             await context.SaveChangesAsync();
             await outputCacheStore.EvictByTagAsync(cacheTag, default);
@@ -83,10 +83,18 @@ namespace PeliculasAPI.Controllers
 
             return NoContent(); 
         }
-        [HttpDelete]
-        public void Delete()
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            throw new NotImplementedException();
+            var registrosBorrados = await context.Generos.Where(g => g.Id==id).ExecuteDeleteAsync();
+
+            if(registrosBorrados == 0)
+            {
+                return NotFound();
+            }
+
+            await outputCacheStore.EvictByTagAsync(cacheTag,default);
+            return NoContent();
         }
     }
 }
